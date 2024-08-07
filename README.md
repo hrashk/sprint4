@@ -15,3 +15,8 @@ mvn -Dbrowser=firefox test
 ```bash
 mvn -Dbrowser=firefox -Dwebdriver.firefox.bin=/usr/bin/firefox test
 ```
+
+# запуск с Yandex
+```bash
+mvn -Dbrowser=yandex -Ddriver.version=122.0.6261.94 -Dwebdriver.yandex.bin=/usr/bin/yandex-browser test
+```
