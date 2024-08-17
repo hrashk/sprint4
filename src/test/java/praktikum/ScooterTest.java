@@ -13,7 +13,7 @@ public class ScooterTest {
     private String INVALID_ORDER_ID = "123";
 
     @Test
-    public void openMainPage() throws Exception {
+    public void invalidOrder() throws Exception {
         WebDriver driver = factory.getDriver();
         var mainPain = new MainPage(driver);
 
