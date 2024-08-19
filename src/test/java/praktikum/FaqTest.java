@@ -8,13 +8,13 @@ import org.junit.runners.Parameterized;
 import praktikum.pages.FaqPage;
 
 @RunWith(Parameterized.class)
-public class FaqTests {
+public class FaqTest {
     private final String itemId;
 
     @ClassRule
     public static DriverRule driverRule = new DriverRule();
 
-    public FaqTests(String itemId) {
+    public FaqTest(String itemId) {
         this.itemId = itemId;
     }
 
