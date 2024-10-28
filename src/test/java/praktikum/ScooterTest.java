@@ -1,13 +1,13 @@
 package praktikum;
 
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
 import praktikum.pages.MainPage;
 import praktikum.pages.StatusPage;
 
 public class ScooterTest {
-    @Rule
+    @RegisterExtension
     public DriverRule factory = new DriverRule();
 
     private String INVALID_ORDER_ID = "123";

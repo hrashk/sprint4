@@ -8,7 +8,7 @@ import praktikum.EnvConfig;
 
 import java.time.Duration;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StatusPage {
     private final WebDriver driver;

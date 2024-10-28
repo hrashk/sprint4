@@ -1,7 +1,9 @@
 package praktikum;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.rules.ExternalResource;
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -9,7 +11,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 
-public class DriverRule extends ExternalResource {
+public class DriverRule implements BeforeEachCallback, AfterEachCallback {
     private WebDriver driver;
 
     public WebDriver getDriver() {
@@ -17,12 +19,12 @@ public class DriverRule extends ExternalResource {
     }
 
     @Override
-    protected void before() throws Throwable {
+    public void beforeEach(ExtensionContext context) throws Exception {
         initDriver();
     }
 
     @Override
-    protected void after() {
+    public void afterEach(ExtensionContext context) throws Exception {
         driver.quit();
     }
 
