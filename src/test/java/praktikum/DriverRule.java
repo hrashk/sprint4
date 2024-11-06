@@ -25,7 +25,8 @@ public class DriverRule implements BeforeEachCallback, AfterEachCallback {
 
     @Override
     public void afterEach(ExtensionContext context) throws Exception {
-        driver.quit();
+        if (driver != null)
+            driver.quit();
     }
 
     public void initDriver() {
