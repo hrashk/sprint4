@@ -9,6 +9,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 
+// junit5 implements BeforeCallback, AfterCallback
 public class DriverRule extends ExternalResource {
     private WebDriver driver;
 
@@ -37,7 +38,7 @@ public class DriverRule extends ExternalResource {
     public void startUpChrome() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMPLICIT_WAIT));
     }
 
     public void startUpFirefox() {
@@ -45,6 +46,6 @@ public class DriverRule extends ExternalResource {
         var opts = new FirefoxOptions()
                 .configureFromEnv();
         driver = new FirefoxDriver(opts);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(EnvConfig.IMPLICIT_WAIT));
     }
 }

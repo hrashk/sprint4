@@ -2,6 +2,7 @@ package praktikum.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import praktikum.EnvConfig;
 
 public class MainPage {
     private final WebDriver driver;
@@ -20,8 +21,8 @@ public class MainPage {
         return new StatusPage(driver);
     }
 
-    public void typeOrderId() {
-        driver.findElement(orderInputField).sendKeys("123");
+    public void typeOrderId(String orderId) {
+        driver.findElement(orderInputField).sendKeys(orderId);
     }
 
     public void clickOnStatus() {
@@ -29,6 +30,6 @@ public class MainPage {
     }
 
     public void openMainPage() {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(EnvConfig.BASE_URL);
     }
 }

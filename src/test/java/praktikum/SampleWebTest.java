@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import praktikum.pages.MainPage;
 
 public class SampleWebTest {
+
+    // junit5 - @RegisterExtension
     @Rule
     public DriverRule factory = new DriverRule();
 
@@ -19,7 +21,8 @@ public class SampleWebTest {
 
         mainPage.clickOnStatus();
 
-        mainPage.typeOrderId();
+        String invalidId = "123";
+        mainPage.typeOrderId(invalidId);
 
         var statusPage = mainPage.clickOnGo();
 
