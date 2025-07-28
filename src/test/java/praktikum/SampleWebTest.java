@@ -1,16 +1,16 @@
 package praktikum;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SampleWebTest {
     private WebDriver driver;
 
-    @Before
+    @BeforeEach
     public void startUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -23,7 +23,7 @@ public class SampleWebTest {
         Thread.sleep(10_000);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         driver.quit();
     }
