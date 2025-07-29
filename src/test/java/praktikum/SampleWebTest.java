@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SampleWebTest {
     @RegisterExtension
-    private static DriverExtension extension = new DriverExtension();
+    private DriverExtension extension = new DriverExtension();
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
