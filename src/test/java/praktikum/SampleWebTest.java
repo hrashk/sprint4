@@ -11,8 +11,9 @@ public class SampleWebTest {
 
     @ParameterizedTest
     @ValueSource(ints = {0, 1, 2, 3})
-    public void openMainPage() throws Exception {
+    public void openMainPage(int id) throws Exception {
         WebDriver driver = extension.getDriver();
+        System.out.println("id = " + id);
 
         var mainPage = new MainPage(driver);
         mainPage.openMainPage();
