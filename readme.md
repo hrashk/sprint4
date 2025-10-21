@@ -1,0 +1,4 @@
+## запуск в firefox
+```bash
+mvn clean test -Dbrowser=firefox -Dwebdriver.firefox.bin=/path/to/firefox
+```
