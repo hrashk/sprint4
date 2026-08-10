@@ -1,30 +1,28 @@
 package praktikum;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SampleWebTest {
-    private WebDriver driver;
-
-    @BeforeEach
-    public void startUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-    }
+    @RegisterExtension
+    private DriverExtension extension = new DriverExtension();
 
     @Test
     public void openMainPage() throws Exception {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        WebDriver driver = extension.getDriver();
+        
+        var mainPage = new MainPage(driver);
 
-        Thread.sleep(10_000);
-    }
+        mainPage.open();
 
-    @AfterEach
-    public void tearDown() {
-        driver.quit();
+        mainPage.clickOnOrderStatus();
+
+        String invalidOrderId = "aa332211";
+        mainPage.enterOrderId(invalidOrderId);
+
+        var statusPage = mainPage.clickOnGoButton();
+
+        statusPage.checkNotFound();
     }
 }
